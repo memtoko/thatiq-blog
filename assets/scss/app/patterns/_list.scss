@@ -1,0 +1,140 @@
+.sh-list {
+  display: block;
+  padding: .8rem 0;
+  list-style: none;
+
+  .sh-list--item {
+    @include typo-subhead();
+    line-height: 1;
+    display: flex;
+    min-height: $list-min-height;
+    box-sizing: border-box;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: $list-min-padding;
+    cursor: default;
+    color: $dark-grey;
+    overflow: hidden;
+
+    .sh-list--item-primary-content {
+      order: 0;
+      flex-grow: 2;
+      text-decoration: none;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+
+      .sh-list--item-icon {
+        margin-right: $list-icon-text-left-distance - $list-icon-size - $list-min-padding;
+      }
+
+      .sh-list--item-avatar {
+        margin-right: $list-avatar-text-left-distance - $list-avatar-size - $list-min-padding;
+      }
+    }
+
+    .sh-list--item-secondary-content {
+      display: flex;
+      flex-flow: column;
+      align-items: flex-end;
+      margin-left: $list-min-padding;
+
+      .sh-list--item-secondary-action label {
+        display: inline;
+      }
+
+      .sh-list--item-secondary--info {
+        @include typo-caption();
+        color: whiten($dark-grey, 11%);
+      }
+
+      .sh-list--item-subheader {
+        padding: 0 0 0 $list-min-padding;
+      }
+    }
+  }
+}
+
+.sh-list--item-icon,
+.sh-list--item-icon.material-icons {
+  height: $list-icon-size;
+  width: $list-icon-size;
+  font-size: $list-icon-size;
+  box-sizing: border-box;
+  color: blacken($mid-grey, 11%);
+}
+
+.sh-list--item-avatar,
+.sh-list--item-avatar.material-icons {
+  height: $list-avatar-size;
+  width: $list-avatar-size;
+  box-sizing: border-box;
+  border-radius: 50%;
+  // Set a background colour in case the user doesn't provide an image.
+  background-color: $mid-grey;
+  // Set a font size and color in case the user provides a Material Icon.
+  font-size: $list-avatar-size;
+}
+
+.sh-list--item-two-line {
+  height: $list-two-line-height;
+
+  .sh-list--item-primary-content {
+    height: $list-two-line-height - $list-min-padding - $list-bottom-padding;
+    line-height: 20px;
+    display: block;
+
+    .sh-list--item-avatar {
+      float: left;
+    }
+
+    .sh-list--item-icon {
+      float: left;
+      // Icons are aligned to center of text in a two line list.
+      margin-top:
+        ($list-two-line-height - $list-min-padding - $list-bottom-padding -
+         $list-icon-size) / 2;
+    }
+
+    .sh-list--item-secondary-content {
+      height: $list-two-line-height - $list-min-padding - $list-bottom-padding;
+    }
+
+    .sh-list--item-sub-title {
+      @include typo-body-1();
+      line-height: 1.8rem;
+      color: whiten($dark-grey, 11%);
+      display: block;
+      padding: 0;
+    }
+  }
+}
+
+.sh-list--item--three-line {
+  height: $list-three-line-height;
+
+  .sh-list--item-primary-content {
+    height: $list-three-line-height - $list-min-padding - $list-bottom-padding;
+    line-height: 20px;
+    display: block;
+
+    .sh-list--item-avatar,
+    .sh-list--item-icon {
+      float: left;
+    }
+  }
+
+  .sh-list--item-secondary-content {
+    height: $list-three-line-height - $list-min-padding - $list-bottom-padding;
+  }
+
+  .sh-list--item-text-body {
+    @include typo-body-1();
+    line-height: 18px;
+    height: $list-three-line-height - $list-min-padding - $list-bottom-padding;
+    color: whiten($dark-grey, 11%);
+    display: block;
+    padding: 0;
+  }
+}

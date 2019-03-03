@@ -1,0 +1,27 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{#is "home"}}
+  {{#if @site.description}}
+  <header class="page-head">
+      <h2 class="page-head-title">{{@site.description}}</h2>
+  </header>
+  {{/if}}
+{{/is}}
+<div class="inner">
+  <div class="sh-grid">
+    <div class="post-feed sh-cell sh-cell--8-col">
+      {{#foreach posts}}
+
+        {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+        {{> "post-card"}}
+
+      {{/foreach}}
+    </div>
+
+    <div class="sh-cell sh-cell--4-col">
+
+    </div>
+  </div>
+</div>
