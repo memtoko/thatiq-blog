@@ -1,0 +1,12 @@
+.subscribe-form {
+  display: block;
+  width: 100%;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  background: whiten($calm-brown, 30%);
+  border: 1px solid whiten($calm-brown, 25%);
+
+  input[type=email] {
+    max-width: 40rem;
+  }
+}

@@ -1,52 +1,71 @@
 {{!< default}}
 
-{{#post}}
-<article class="post-content {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
-
-    <header class="post-content-header">
+<div class="inner">
+  {{#post}}
+  <div class="sh-grid">
+    <article class="sh-cell sh-cell--8-col post-content {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
+      <header class="post-content-header">
+        <section class="post-content-meta">
+          <time class="post-content-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMMM YYYY"}}</time>
+          {{#primary_tag}}
+            <span class="date-divider">/</span> <a href="{{url}}">{{name}}</a>
+          {{/primary_tag}}
+        </section>
         <h1 class="post-content-title">{{title}}</h1>
-    </header>
+      </header>
 
-    {{#if custom_excerpt}}
-        <p class="post-content-excerpt">{{custom_excerpt}}</p>
-    {{/if}}
+      {{#if feature_image}}
+      <figure class="post-content-image">
+        {{!-- This is a responsive image, it loads different sizes depending on device
+        https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
+        <img
+            srcset="{{img_url feature_image size="s"}} 300w,
+                    {{img_url feature_image size="m"}} 600w,
+                    {{img_url feature_image size="l"}} 1000w,
+                    {{img_url feature_image size="xl"}} 2000w"
+            sizes="(max-width: 800px) 400px,
+                    (max-width: 1170px) 700px,
+                    1400px"
+            src="{{img_url feature_image size="xl"}}"
+            alt="{{title}}"
+        />
+      </figure>
+      {{/if}}
 
-    {{#if feature_image}}
-    <div class="post-content-image">
-        <img class="kg-image" src="{{feature_image}}" alt="{{title}}" />
-    </div>
-    {{/if}}
-
-    <div class="post-content-body">
+      <div class="post-content-body">
         {{content}}
-    </div>
+      </div>
 
-    {{!-- Email subscribe form at the bottom of the page --}}
-    {{#if @labs.subscribers}}
-    <section class="subscribe-form">
+      {{!-- Email subscribe form at the bottom of the page --}}
+      {{#if @labs.subscribers}}
+      <section class="subscribe-form">
         <h3 class="subscribe-form-title">Subscribe to {{@site.title}}</h3>
         <p>Get the latest posts delivered right to your inbox</p>
-        {{subscribe_form placeholder="youremail@example.com"}}
-    </section>
-    {{/if}}
+        {{subscribe_form input_class="sh-input" button_class="sh-btn sh-btn-brown" placeholder="youremail@example.com"}}
+      </section>
+      {{/if}}
 
-    <footer class="post-content-footer">
+      <footer class="post-content-footer">
+        {{#has author="count:>1"}}
+          {{> "byline-multiple"}}
+        {{else}}
+          {{> "byline-single"}}
+        {{/has}}
+      </footer>
 
-        {{!-- There are two options for how we display the byline/author-info.
-        If the post has more than one author, we load a specific template
-        from includes/byline-multiple.hbs, otherwise, we just use the
-        default byline. --}}
+      {{!--
+      <section class="post-content-comments">
+          If you want to embed comments, this is a good place to do it!
+      </section>
+      --}}
 
-    </footer>
+    </article>
+    <aside class="sh-cell sh-cell--4-col">
 
-    {{!--
-    <section class="post-content-comments">
-        If you want to embed comments, this is a good place to do it!
-    </section>
-    --}}
-
-</article>
-{{/post}}
+    </aside>
+  </div>
+  {{/post}}
+</div>
 
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}

@@ -5,7 +5,7 @@ into the {body} of the default.hbs template --}}
   {{#is "home"}}
     {{#if @site.description}}
     <header class="page-head">
-        <h2 class="page-head-title">{{@site.description}}</h2>
+      <h2 class="page-head-title">{{@site.description}}</h2>
     </header>
     {{/if}}
   {{/is}}
@@ -19,8 +19,15 @@ into the {body} of the default.hbs template --}}
       {{/foreach}}
     </div>
 
-    <div class="sh-cell sh-cell--4-col">
-
-    </div>
+    <aside class="sh-cell sh-cell--4-col">
+      {{!-- Email subscribe form at the bottom of the page --}}
+      {{#if @labs.subscribers}}
+      <section class="subscribe-form">
+        <h3 class="subscribe-form-title">Subscribe to {{@site.title}}</h3>
+        <p>Get the latest posts delivered right to your inbox</p>
+        {{subscribe_form input_class="sh-input" button_class="sh-btn sh-btn-brown" placeholder="youremail@example.com"}}
+      </section>
+      {{/if}}
+    </aside>
   </div>
 </div>

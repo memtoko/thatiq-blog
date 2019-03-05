@@ -46,7 +46,8 @@
 $button-colors: (
   'blue': $blue,
   'red': $red,
-  'grey': $dark-grey
+  'grey': $dark-grey,
+  'brown': $calm-brown,
 );
 
 @each $name, $color in $button-colors {

@@ -37,7 +37,7 @@ function css() {
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(processors))
-    .pipe(sourcemaps.write('.'))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('assets/built/'))
     .pipe(livereload());
 }

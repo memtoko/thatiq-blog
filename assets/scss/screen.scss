@@ -11,11 +11,16 @@
 @import 'app/patterns/forms';
 @import 'app/patterns/buttons';
 @import 'app/patterns/table';
-@import 'app/patterns/list';
-@import 'app/patterns/card';
 
 // layout
 @import 'app/layout/common';
 @import 'app/layout/drawer';
 @import 'app/layout/grid';
 @import 'app/layout/posts';
+
+// components
+@import 'app/components/list';
+@import 'app/components/card';
+@import 'app/components/subscribe';
+@import 'app/components/ghost';
+@import 'app/components/author-card';

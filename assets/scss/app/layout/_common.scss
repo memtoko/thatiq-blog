@@ -61,8 +61,13 @@
   ul.nav {
     list-style: none;
     margin-bottom: 0;
+
     li {
       margin-bottom: 0;
+
+      &.nav-current a {
+        color: blacken($mid-brown, 11%);
+      }
 
       a {
         color: $mid-grey;

@@ -1,0 +1,44 @@
+.author-card {
+  display: flex;
+
+  .author-profile-image,
+  .avatar-wrapper {
+    margin-right: 1.5rem;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 100%;
+  }
+
+  .author-card-name {
+    margin: .8rem 0 .2rem 0;
+    padding: 0;
+    font-size: 2rem;
+
+    a {
+      color: $dark-grey;
+      font-weight: 700;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .author-card-content p {
+    margin: 0;
+    color: $mid-grey;
+    line-height: 1.3em;
+  }
+}
+
+.author-card-button {
+  display: block;
+  padding: .9rem 1.6rem;
+  border: scale-color($mid-grey, $lightness: 20%) 1px solid;
+  color: $mid-grey;
+  font-size: 1.2rem;
+  line-height: 1;
+  font-weight: 500;
+  border-radius: 2rem;
+  transition: all ease 0.2s;
+}
